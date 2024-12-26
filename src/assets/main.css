@@ -1,0 +1,8 @@
+@import './base.css';
+
+#tradingview iframe{
+  min-height: 380px;
+}
+#chat-widget-container {
+  height: 90% !important;
+}
