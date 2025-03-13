@@ -36,19 +36,19 @@ let locations = JSON.parse(localStorage.getItem('locations'))
 const showLiveChat = ref('hidden')
 const key = ref(0)
 function showCshkPluin() {
-  console.log('ccc');
-  showLiveChat.value = 'maximized'
-  key.value = key.value + 1
-  console.log(showLiveChat.value);
+    console.log('ccc');
+    showLiveChat.value = 'maximized'
+    key.value = key.value + 1
+    console.log(showLiveChat.value);
 }
 
 
 function onGreetingHidden(e) {
-  console.log(e);
-  if (e.visibility == 'minimized') {
-    showLiveChat.value = 'hidden'
-  }
-  
+    console.log(e);
+    if (e.visibility == 'minimized') {
+        showLiveChat.value = 'hidden'
+    }
+
 }
 
 async function loadCheck() {
@@ -91,14 +91,10 @@ onMounted(async () => {
 
 <template>
     <div>
-        <div class="profile" :data-theme="theme" v-if="showprofile == false && loadding == true" >
+        <div class="profile" :data-theme="theme" v-if="showprofile == false && loadding == true">
             <div class="main">
-                <LiveChatWidget
-                :key="key"
-            license="18914688"
-            :visibility="showLiveChat"
-            v-on:visibility-changed="onGreetingHidden"
-          />
+                <LiveChatWidget :key="key" license="19077561" :visibility="showLiveChat"
+                    v-on:visibility-changed="onGreetingHidden" />
                 <div class="top">
                     <div class="back">
                         <RouterLink to="/">
@@ -116,9 +112,12 @@ onMounted(async () => {
                 </div>
                 <div class="main-info">
                     <div class="avatar" @click="showprofile = true">
-                        <img :src="userLogined.avatar == '' ? 'https://i.imgur.com/Me8yPX7.png' : userLogined.avatar " alt="">
+                        <img :src="userLogined.avatar == '' ? 'https://i.imgur.com/Me8yPX7.png' : userLogined.avatar"
+                            alt="">
                     </div>
-                    <div class="right" style="display: flex; width: 100%; align-items: center;justify-content: space-between;" @click="showprofile = true">
+                    <div class="right"
+                        style="display: flex; width: 100%; align-items: center;justify-content: space-between;"
+                        @click="showprofile = true">
                         <div class="1">
                             <span class="phonemail">{{ userLogined.phone }}</span>
                             <span class="uid">{{ languagePack.profile_index_title }}</span>
@@ -135,7 +134,9 @@ onMounted(async () => {
                     </div>
                     <div class="au" @click="showSupportUpload = true">
                         <i class='bx bx-check-shield'></i>
-                        <span>{{ userLogined.status != 1 ? (userLogined.status === 3 ? languagePack.profile_index_upload_status1 : languagePack.profile_index_upload_status2) : languagePack.profile_index_upload_status3 }}</span>
+                        <span>{{ userLogined.status != 1 ? (userLogined.status === 3 ?
+                            languagePack.profile_index_upload_status1 : languagePack.profile_index_upload_status2) :
+                            languagePack.profile_index_upload_status3 }}</span>
                     </div>
                     <div class="score" @click="showsupportScoreCredit = true">
                         <i class='bx bx-smile'></i>
@@ -147,12 +148,12 @@ onMounted(async () => {
                 <div class="functions">
                     <div class="item" @click="showDepoit = true">
                         <div class="icon ">
-                            <i class='bx bx-log-in-circle bx-rotate-90' ></i>
+                            <i class='bx bx-log-in-circle bx-rotate-90'></i>
                         </div>
                         <span>{{ languagePack.profile_index_withdraw }}</span>
                     </div>
                     <div class="item">
-                        
+
                         <RouterLink to="/invest">
                             <div class="icon">
                                 <i class="bx bx-bolt-circle"></i>
@@ -172,7 +173,7 @@ onMounted(async () => {
                         </div>
                         <span>{{ languagePack.profile_index_bonus }}</span>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="main1">
@@ -216,7 +217,8 @@ onMounted(async () => {
                             <i class='bx bx-world'></i>
                             <span>{{ languagePack.profile_index_language }}</span>
                         </div>
-                        <span>{{ locations.language == 'VN' ? 'Tiếng Việt' : 'English' }}<i class='bx bx-right-arrow-alt'></i></span>
+                        <span>{{ locations.language == 'VN' ? 'Tiếng Việt' : 'English' }}<i
+                                class='bx bx-right-arrow-alt'></i></span>
                     </div>
                     <div class="item">
                         <div class="left">
@@ -230,7 +232,8 @@ onMounted(async () => {
                             <i class='bx bx-moon'></i>
                             <span>{{ languagePack.profile_index_dark }}</span>
                         </div>
-                        <span>{{ theme == 'dark' ? languagePack.profile_index_mode1 : languagePack.profile_index_mode2 }}<i class='bx bx-right-arrow-alt'></i></span>
+                        <span>{{ theme == 'dark' ? languagePack.profile_index_mode1 : languagePack.profile_index_mode2 }}<i
+                                class='bx bx-right-arrow-alt'></i></span>
                     </div>
                     <div class="item">
                         <div class="left">
@@ -289,15 +292,16 @@ onMounted(async () => {
         <Upload v-if="showUpload" @close-popup="showUpload = false" @loadcheck="loadCheck" />
         <Bank v-if="showBank" @close-popup="showBank = false" />
         <changepass v-if="showchangepass" @close-popup="showchangepass = false" />
-        <profile v-if="showprofile" @close-popup="showprofile = false" :userLogined="userLogined" @loadcheck="loadCheck"/>
+        <profile v-if="showprofile" @close-popup="showprofile = false" :userLogined="userLogined" @loadcheck="loadCheck" />
         <LightMode v-if="showLightMode" @close-popup="showLightMode = false" />
-        <supportScoreCredit v-if="showsupportScoreCredit" @close-popup="showsupportScoreCredit = false" :scoreCredit="userLogined.creditScore" />
+        <supportScoreCredit v-if="showsupportScoreCredit" @close-popup="showsupportScoreCredit = false"
+            :scoreCredit="userLogined.creditScore" />
         <SupportUpload v-if="showSupportUpload" @close-popup="showSupportUpload = false" :status="userLogined.status" />
-        <depoit v-if="showDepoit" @close-popup="showDepoit = false"/>
-        <Invite v-if="showInvite" @close-popup="showInvite = false" :referalCode="userLogined.referralCode"/>
-        <Bonus v-if="showBonus" @close-popup="showBonus = false"/>
-        <supportVip v-if="showVip" @close-popup="showVip = false"/>
-        <LangPopup v-if="showLangPopup" @close-popup="showLangPopup = false"/>
+        <depoit v-if="showDepoit" @close-popup="showDepoit = false" />
+        <Invite v-if="showInvite" @close-popup="showInvite = false" :referalCode="userLogined.referralCode" />
+        <Bonus v-if="showBonus" @close-popup="showBonus = false" />
+        <supportVip v-if="showVip" @close-popup="showVip = false" />
+        <LangPopup v-if="showLangPopup" @close-popup="showLangPopup = false" />
     </div>
 </template>
 
@@ -429,7 +433,8 @@ onMounted(async () => {
     text-align: center;
     display: block
 }
- .item .left {
+
+.item .left {
     display: flex;
     align-items: center;
 }
@@ -438,6 +443,7 @@ onMounted(async () => {
     position: relative;
     display: inline-block;
 }
+
 a.item {
     color: var(--text-color);
 }
@@ -513,5 +519,4 @@ a.item {
     display: inline-block;
     margin-left: 10px;
     font-size: 15px;
-}
-</style>
+}</style>

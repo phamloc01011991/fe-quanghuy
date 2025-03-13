@@ -209,19 +209,19 @@ function onGreetingHidden(e) {
   if (e.visibility == 'minimized') {
     showLiveChat.value = 'hidden'
   }
-  
+
 }
 
 const cskhPopup = () => {
   var check = store.getters.usersss
   if (check) {
-    ;(function (a, b, c, d, e, j, s) {
+    ; (function (a, b, c, d, e, j, s) {
       a[d] =
         a[d] ||
         function () {
-          ;(a[d].a = a[d].a || []).push(arguments)
+          ; (a[d].a = a[d].a || []).push(arguments)
         }
-      ;(j = b.createElement(c)), (s = b.getElementsByTagName(c)[0])
+        ; (j = b.createElement(c)), (s = b.getElementsByTagName(c)[0])
       j.async = true
       j.charset = 'UTF-8'
       j.src = 'https://static.meiqia.com/widget/loader.js'
@@ -313,13 +313,13 @@ onMounted(async () => {
     if (newVal == false) {
       var check = store.getters.usersss
       if (check) {
-        ;(function (a, b, c, d, e, j, s) {
+        ; (function (a, b, c, d, e, j, s) {
           a[d] =
             a[d] ||
             function () {
-              ;(a[d].a = a[d].a || []).push(arguments)
+              ; (a[d].a = a[d].a || []).push(arguments)
             }
-          ;(j = b.createElement(c)), (s = b.getElementsByTagName(c)[0])
+            ; (j = b.createElement(c)), (s = b.getElementsByTagName(c)[0])
           j.async = true
           j.charset = 'UTF-8'
           j.src = 'https://static.meiqia.com/widget/loader.js'
@@ -356,25 +356,17 @@ onUnmounted(() => {
     <div class="main" :data-theme="theme">
       <div class="main-content">
         <div class="contain">
-          <LiveChatWidget
-          :key="key"
-            license="18914688"
-            :visibility="showLiveChat"
-            v-on:visibility-changed="onGreetingHidden"
-          />
+          <LiveChatWidget :key="key" license="19077561" :visibility="showLiveChat"
+            v-on:visibility-changed="onGreetingHidden" />
           <!-- HEADER -->
           <div class="head">
             <div class="left">
               <div class="logo">
                 <RouterLink to="/profile" style="display: flex">
-                  <img
-                    :src="
-                      userLogined.avatar == '' || !userLogined.avatar
-                        ? 'https://i.imgur.com/Me8yPX7.png'
-                        : userLogined.avatar
-                    "
-                    alt=""
-                  />
+                  <img :src="userLogined.avatar == '' || !userLogined.avatar
+                      ? 'https://i.imgur.com/Me8yPX7.png'
+                      : userLogined.avatar
+                    " alt="" />
                 </RouterLink>
               </div>
               <Search />
@@ -395,31 +387,24 @@ onUnmounted(() => {
           <div class="user-logined" v-if="isLogined">
             <div class="money">
               <div class="left">
-                <span class="title"
-                  >{{ languagePack.home_total_balance }}
-                  <i
-                    :class="[isHiddenAmount ? 'bx bxs-show' : 'bx bxs-low-vision']"
-                    @click="hiddenAmount()"
-                  ></i>
+                <span class="title">{{ languagePack.home_total_balance }}
+                  <i :class="[isHiddenAmount ? 'bx bxs-show' : 'bx bxs-low-vision']" @click="hiddenAmount()"></i>
                 </span>
                 <div class="amount">
-                  <span class="usd"
-                    >{{
-                      isHiddenAmount
-                        ? formatUsdt(parseFloat(userLogined.balance) + parseFloat(farmingAmount))
-                        : '********'
-                    }}
-                    <span v-if="isHiddenAmount"
-                      >USD <i class="bx bxs-down-arrow" style="font-size: 8px"></i></span
-                  ></span>
+                  <span class="usd">{{
+                    isHiddenAmount
+                    ? formatUsdt(parseFloat(userLogined.balance) + parseFloat(farmingAmount))
+                    : '********'
+                  }}
+                    <span v-if="isHiddenAmount">USD <i class="bx bxs-down-arrow" style="font-size: 8px"></i></span></span>
                   <span class="vnd">
                     {{
                       isHiddenAmount
-                        ? '≈ ' +
-                          formatVnd(
-                            (parseFloat(userLogined.balance) + parseFloat(farmingAmount)) * priceUSD
-                          )
-                        : '******'
+                      ? '≈ ' +
+                      formatVnd(
+                        (parseFloat(userLogined.balance) + parseFloat(farmingAmount)) * priceUSD
+                      )
+                      : '******'
                     }}
                   </span>
                 </div>
@@ -469,11 +454,7 @@ onUnmounted(() => {
               </div>
               <a class="item" href="https://www.trade-forex-ex.homes/#about" target="_blank">
                 <div class="icon">
-                  <img
-                    src="../../assets/logo.png"
-                    alt=""
-                    style="width: 27px; height: 27px; object-fit: cover"
-                  />
+                  <img src="../../assets/logo.png" alt="" style="width: 27px; height: 27px; object-fit: cover" />
                 </div>
                 <span>{{ languagePack.home_aboutus }}</span>
               </a>
@@ -513,10 +494,7 @@ onUnmounted(() => {
               }}</span>
             </div>
             <div class="mk" id="trending1" style="display: none">
-              <div
-                class="list-item list-data__title flex"
-                style="color: var(--text-sub-color); margin-bottom: 10px"
-              >
+              <div class="list-item list-data__title flex" style="color: var(--text-sub-color); margin-bottom: 10px">
                 <div class="name" style="width: 35%">
                   {{ languagePack.market_item_tile1 }}
                 </div>
@@ -530,31 +508,18 @@ onUnmounted(() => {
               <div>
                 <template v-if="isWeekend == false">
                   <template v-for="(item, index) in symbols.data" :key="index">
-                    <Item
-                      v-if="item.status == '1'"
-                      :name="item.symbol"
-                      :data="item.data"
-                      :vitri="index"
-                    />
+                    <Item v-if="item.status == '1'" :name="item.symbol" :data="item.data" :vitri="index" />
                   </template>
                 </template>
                 <template v-if="isWeekend == true">
                   <template v-for="(item, index) in symbols.data" :key="index">
-                    <Item1
-                      v-if="item.status == '1'"
-                      :name="item.symbol"
-                      :data="item.data"
-                      :vitri="index"
-                    />
+                    <Item1 v-if="item.status == '1'" :name="item.symbol" :data="item.data" :vitri="index" />
                   </template>
                 </template>
               </div>
             </div>
             <div class="mk" id="all1">
-              <div
-                class="list-item list-data__title flex"
-                style="color: var(--text-sub-color); margin-bottom: 10px"
-              >
+              <div class="list-item list-data__title flex" style="color: var(--text-sub-color); margin-bottom: 10px">
                 <div class="name" style="width: 35%">
                   {{ languagePack.market_item_tile1 }}
                 </div>
@@ -579,10 +544,7 @@ onUnmounted(() => {
               </div>
             </div>
             <div class="mk" id="new1" style="display: none">
-              <div
-                class="list-item list-data__title flex"
-                style="color: var(--text-sub-color); margin-bottom: 10px"
-              >
+              <div class="list-item list-data__title flex" style="color: var(--text-sub-color); margin-bottom: 10px">
                 <div class="name" style="width: 35%">
                   {{ languagePack.market_item_tile1 }}
                 </div>
@@ -596,22 +558,12 @@ onUnmounted(() => {
               <div>
                 <template v-if="isWeekend == false">
                   <template v-for="(item, index) in symbols.data" :key="index">
-                    <Item
-                      v-if="item.status == '2'"
-                      :name="item.symbol"
-                      :data="item.data"
-                      :vitri="index"
-                    />
+                    <Item v-if="item.status == '2'" :name="item.symbol" :data="item.data" :vitri="index" />
                   </template>
                 </template>
                 <template v-if="isWeekend == true">
                   <template v-for="(item, index) in symbols.data" :key="index">
-                    <Item1
-                      v-if="item.status == '2'"
-                      :name="item.symbol"
-                      :data="item.data"
-                      :vitri="index"
-                    />
+                    <Item1 v-if="item.status == '2'" :name="item.symbol" :data="item.data" :vitri="index" />
                   </template>
                 </template>
               </div>
@@ -619,10 +571,7 @@ onUnmounted(() => {
           </div>
         </div>
         <div class="see-more">
-          <RouterLink
-            to="/market"
-            style="font-size: 13px; color: var(--text-sub-color); font-weight: 500"
-          >
+          <RouterLink to="/market" style="font-size: 13px; color: var(--text-sub-color); font-weight: 500">
             {{ languagePack.market_more }}
             <i class="bx bx-right-arrow-alt" style="font-size: 17px"></i>
           </RouterLink>
@@ -689,16 +638,9 @@ onUnmounted(() => {
       <LangPopup v-if="showPopupLanguage" @close-popup="showPopupLanguage = false" />
       <Depoint v-if="showDepoit" @close-popup="showDepoit = false" />
       <PopUser v-if="showLogin" @close-popup="showLogin = false" />
-      <Invite
-        v-if="isShowInvite"
-        @close-popup="isShowInvite = false"
-        :referalCode="userLogined.referralCode"
-      />
+      <Invite v-if="isShowInvite" @close-popup="isShowInvite = false" :referalCode="userLogined.referralCode" />
       <Bonus v-if="showBonus" @close-popup="showBonus = false" />
-      <PersonNotification
-        v-if="isShowPersonNotification"
-        @close-popup="isShowPersonNotification = false"
-      />
+      <PersonNotification v-if="isShowPersonNotification" @close-popup="isShowPersonNotification = false" />
       <SupportVip v-if="showVip" @close-popup="showVip = false" />
       <MoreFuncs v-if="isShowMore" @close-popup="isShowMore = false" :userLogined="userLogined" />
     </div>
@@ -711,10 +653,12 @@ onUnmounted(() => {
 a.item {
   color: var(--text-color);
 }
+
 .mk {
   padding-inline: 12px;
   padding-bottom: 10px;
 }
+
 .tablink {
   display: flex;
   padding-bottom: 10px;
@@ -723,6 +667,7 @@ a.item {
   padding-inline: 12px;
   padding-top: 10px;
 }
+
 .tablink span {
   font-size: 16px;
   font-weight: 600;
@@ -731,12 +676,15 @@ a.item {
   margin-right: 15px;
   position: relative;
 }
+
 .tablink span:last-child {
   margin-right: 0;
 }
+
 .tablink span.active {
   color: var(--text-color);
 }
+
 /* new css */
 /* contain */
 .contain {
@@ -824,6 +772,7 @@ a.item {
   display: flex;
   align-items: center;
 }
+
 /* user logined */
 .user-logined .money {
   display: flex;
@@ -831,51 +780,63 @@ a.item {
   align-items: center;
   margin-block: 20px;
 }
+
 .user-logined .money .left {
   padding-left: 5px;
 }
+
 .user-logined .money .left .title {
   color: var(--text-sub-color);
   display: block;
   font-size: 13px;
   margin-bottom: 3px;
 }
+
 .user-logined .money .left .title i {
   vertical-align: middle;
   display: inline-block;
   margin-left: 5px;
 }
+
 .user-logined .money .left .amount span {
   font-size: 13px;
 }
+
 .user-logined .money .left .amount span.usd {
   display: block;
   font-size: 19px;
   font-weight: 700;
 }
+
 .user-logined .money .left .amount span.usd span {
   font-size: 12px;
 }
+
 .user-logined .money .left .amount span.vnd {
   color: var(--text-sub-color);
 }
+
 .user-logined .money .right span {
   padding: 5px 15px;
   border-radius: 5px;
   margin-right: 10px;
 }
+
 .user-logined .functions {
   display: flex;
   justify-content: space-between;
 }
+
 .user-logined .functions .item {
   width: 21%;
   text-align: center;
 }
+
 .user-logined .functions .item .icon {
   position: relative;
   display: inline-block;
 }
+
 .user-logined .functions .item .icon.hot::after {
   content: 'HOT';
   color: #000;
@@ -888,18 +849,22 @@ a.item {
   padding: 1px 2px;
   border-radius: 5px;
 }
+
 .user-logined .functions .item i {
   font-size: 27px;
   display: inline-block;
   color: #faa600;
 }
+
 .user-logined .functions {
   margin-bottom: 10px;
 }
+
 .user-logined .functions .item span {
   font-size: 13px;
   display: block;
 }
+
 /* Join us */
 .join-us {
   margin-block: 20px;
@@ -924,7 +889,7 @@ a.item {
 
 /* market */
 
-.list-item > div {
+.list-item>div {
   font-weight: 500;
   font-size: 13px;
 }
@@ -952,32 +917,40 @@ a.item {
   border-bottom: 1px solid var(--border-color);
   background-color: var(--background-color);
 }
+
 .event .new-event {
   padding: 15px 12px 10px 12px;
   background-color: var(--background-color);
 }
+
 .event .new-event .item {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
+
 .event .new-event .item .left {
   width: 55%;
 }
+
 .event .new-event .item .left .title {
   font-size: 13px;
   color: var(--text-color);
 }
+
 .event .new-event .item .bottom {
   font-size: 12px;
 }
+
 .event .new-event .item .bottom {
   display: inline-block;
   margin-top: 3px;
 }
+
 .event .new-event .item .bottom .date {
   color: var(--text-sub-color);
 }
+
 .event .new-event .item .bottom .status {
   margin-left: 10px;
   background: #1c5137;
@@ -985,9 +958,11 @@ a.item {
   padding: 2px;
   border-radius: 3px;
 }
+
 .event .new-event .item .right {
   width: 35%;
 }
+
 .event .new-event .item .right img {
   width: 100%;
   height: 80px;
